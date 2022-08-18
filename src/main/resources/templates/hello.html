@@ -10,5 +10,9 @@
     <p>
         <div th:text="${message}" />
     </p>
+    <form method="post"action="/hello">
+        任意の文字を入力：
+        <input type="text"name="text1"th:value="${text1_value}"/><input type="submit"value="クリック"/>
+    </form>
 </body>
 </html>
