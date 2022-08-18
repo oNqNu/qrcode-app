@@ -11,7 +11,7 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showHello(Model model) {
         model.addAttribute("title", "Hello World!");
-        model.addAttribute("message", "ようこそ、ばったん技術ブログへ");
+        model.addAttribute("message", "お願いしまふ");
         return "hello";
     }
 }
