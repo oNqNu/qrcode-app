@@ -9,11 +9,7 @@ public class Test {
         return "aa";
       }
 
-    public int getX(int a) {
-        return a;
-    }
-
-    public int getY() {
-        return y;
+    public String greeting() {
+        return "hello";
     }
 }

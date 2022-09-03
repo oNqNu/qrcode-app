@@ -9,16 +9,16 @@ import com.qrcode.qrcodeapp.classes.Test;
 @RestController
 @RequestMapping("api")
 public class RestApiController {
- 
+
     @RequestMapping("hello")
     private String hello(@RequestParam("test") String str) {
         return str;
     }
 
-    @RequestMapping("add")
-    private int add() {
+    @RequestMapping("greeting")
+    private String add() {
         Test test = new Test();
-        return test.getX(1);
+        return test.greeting();
     }
 
 }
