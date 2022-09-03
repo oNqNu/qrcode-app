@@ -18,6 +18,7 @@ public class RestApiController {
     @RequestMapping("greeting")
     private String add() {
         Test test = new Test();
+        test.string = "hello!!";
         return test.greeting();
     }
 

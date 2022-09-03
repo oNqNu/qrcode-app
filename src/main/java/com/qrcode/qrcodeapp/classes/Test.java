@@ -1,8 +1,7 @@
 package com.qrcode.qrcodeapp.classes;
 
 public class Test {
-    int x;
-	int y;
+    public String string = "";
 
     public static String main(String[] args){
         System.out.println("Hello");
@@ -10,6 +9,6 @@ public class Test {
       }
 
     public String greeting() {
-        return "hello";
+        return this.string;
     }
 }
