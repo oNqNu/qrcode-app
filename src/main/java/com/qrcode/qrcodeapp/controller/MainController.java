@@ -12,7 +12,7 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showHello(Model model) {
         model.addAttribute("title", "Hello World!");
-        model.addAttribute("message", "お願いしまふ");
+        model.addAttribute("message", "test");
         return "hello";
     }
 
@@ -21,6 +21,5 @@ public class MainController {
     public String postFromhello(@RequestParam("text1")String str ,Model model) {
         model.addAttribute("sample", str);
         return "helloResponse";
-    
     }
 }
