@@ -1,4 +1,4 @@
-﻿package com.qrcode.qrcodeapp.classes;
+package com.qrcode.qrcodeapp.util;
 
 
 import java.io.BufferedInputStream;
@@ -1200,4 +1200,3 @@ public class Qrcode{
 	}
 }
 /*--- class end ---*/
-
