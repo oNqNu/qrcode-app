@@ -1,13 +1,11 @@
 package com.qrcode.qrcodeapp.controller;
 
-import org.apache.catalina.Valve;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qrcode.qrcodeapp.classes.QRmain;
-import com.qrcode.qrcodeapp.classes.Test;
-
+import com.qrcode.qrcodeapp.util.QRmain;
+// import com.qrcode.qrcodeapp.classes.Test;
 
 @RestController
 @RequestMapping("api")
@@ -32,15 +30,13 @@ public class RestApiController {
         String str8 = "0.7";
         String str9 = "0.3";
         String str10 = "0.6";
-        QRmain.main(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
+        QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
         return "run qr-test";
     }
 
     @RequestMapping("greeting")
     private String add() {
-        Test test = new Test();
-        test.string = "hello!!";
-        return test.greeting();
+        return "hello";
     }
 
 }
