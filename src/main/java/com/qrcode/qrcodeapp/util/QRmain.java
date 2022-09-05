@@ -440,27 +440,35 @@ public class QRmain {
 
 	public static void insert(String file, String file2) {
 		OpenCV.loadShared();
+		System.out.println("うん");
 		File f = new File(file);
 		Mat image = Imgcodecs.imread(f.getAbsolutePath());
 		if (image == null) {
+			System.out.println("あっべ");
 			throw new IllegalArgumentException("Illegal input file.");
 		}
 		File f2 = new File(file2);
 		Mat image2 = Imgcodecs.imread(f2.getAbsolutePath());
 		if (image2 == null) {
+			System.out.println("やっべ");
 			throw new IllegalArgumentException("Illegal input file.");
 		}
+		System.out.println("いけてる");
 		Mat image2_clone = image2.clone();
 
-		int iconHeight = msize*modules1Side + 2*msize;
-		int iconWidth = msize*modules1Side + 2*msize;
+//		int iconHeight = msize*modules1Side + 2*msize;
+//		int iconWidth = msize*modules1Side + 2*msize;
+		
+		int iconHeight = msize*modules1Side;
+		int iconWidth = msize*modules1Side;
 		//System.out.println("iconHeight = " +iconHeight+"  iconWidth = " +iconWidth);
 
 		double[][][] data_tr = new double[iconHeight][iconWidth][3];
 		double[] tmp = new double[3];
-		for (int i = 0; i < iconHeight; i++) {
+		for (int i = 0; i < iconHeight ; i++) {
 			for (int j = 0; j < iconWidth; j++) {
 				tmp = image.get(i, j);
+//				System.out.println(tmp[2]);
 				if (i < msize || i >= iconHeight-msize || j < msize || j >= iconWidth-msize){
 					tmp = image2.get(i+clip_y-msize, j+clip_x-msize);
 					double Y = 0.299*tmp[2] + 0.587*tmp[1] + 0.114*tmp[0];
@@ -472,6 +480,7 @@ public class QRmain {
 						tmp[2] = round_double2int(Y + 1.4020 * V);
 						tmp[1] = round_double2int(Y - 0.3441 * U - 0.7139 * V);
 						tmp[0] = round_double2int(Y + 1.7718 * U - 0.0012 * V);
+						
 					}
 				}
 				if ((i < msize && (j > 9*msize && j < iconWidth-9*msize))
@@ -479,8 +488,18 @@ public class QRmain {
 						|| (j < msize && (i>9*msize && i < iconHeight-9*msize))
 						|| (j >= iconWidth-msize && i > 9*msize)){
 					tmp = image2.get(i+clip_y-msize, j+clip_x-msize);
+					System.out.println(tmp[0]);
 				}
-						
+				
+				if(tmp == null) {
+					System.out.println("The array is null");
+					System.out.println(iconWidth);
+					System.out.println(j);
+					System.out.println(msize);
+					
+				} 
+
+				
 				data_tr[i][j][0] = tmp[0];
 				data_tr[i][j][1] = tmp[1];
 				data_tr[i][j][2] = tmp[2];
@@ -503,7 +522,7 @@ public class QRmain {
 			ecc = "Q";
 		}
 
-		Imgcodecs.imwrite("./QRfiles/" + getPreffix(f2.getName()) + "_" + version + ecc + "_" + msize + "x" + msize + "_" + scale +".png", image2_clone);
+		Imgcodecs.imwrite("src/main/resources/img/output/" + getPreffix(f2.getName()) + "_" + version + ecc + "_" + msize + "x" + msize + "_" + scale +".png", image2_clone);
 		System.out.println("QR code is output successfully.");
 
 	}
