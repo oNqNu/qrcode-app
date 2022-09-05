@@ -488,7 +488,6 @@ public class QRmain {
 						|| (j < msize && (i>9*msize && i < iconHeight-9*msize))
 						|| (j >= iconWidth-msize && i > 9*msize)){
 					tmp = image2.get(i+clip_y-msize, j+clip_x-msize);
-					System.out.println(tmp[0]);
 				}
 				
 				if(tmp == null) {

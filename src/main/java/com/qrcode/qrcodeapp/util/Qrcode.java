@@ -368,6 +368,7 @@ public class Qrcode{
 			bis.close();
 			fis.close();
 		} catch (Exception e) {
+			System.out.println("ええかんず");
 			e.printStackTrace();
 		}
 
