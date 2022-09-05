@@ -51,12 +51,10 @@ public class QRmain {
 		parseOptions(args);
 		modules1Side = 4*version + 17;
 		mod = 0; // non-systematic encoding
-		System.out.println(originalfilename);
 		trimming(originalfilename);
 		
 		File trimming = new File("src/main/resources/img/tmp/trimming.png");
 		imagefilename = trimming.getPath();
-		System.out.println(imagefilename);
 //		imagefilename === src/main/resources/img/tmp/trimming.png
 		binarize(imagefilename);
 		weightingBackGround(imagefilename);
@@ -71,8 +69,9 @@ public class QRmain {
 		byte[] d = textdata.getBytes();
 		s = x.calQrcode(d);
 		makefile(s);
-
+		System.out.println("ここまで");
 		File QRcode = new File("src/main/resources/img/tmp/trimming.png");
+		System.out.println(QRcode.getPath());
 		insert(QRcode.getPath(), originalfilename);
 
 	}
@@ -206,7 +205,7 @@ public class QRmain {
 		Core.compare(mask, source, mask, Core.CMP_EQ);
 		Mat fg = new Mat(image.size(), CvType.CV_8UC1, new Scalar(0, 0, 0)); // foreground image
 		image.copyTo(fg, mask); // extract a foreground image
-		Imgcodecs.imwrite("./tmp/grabcut.png", fg); 
+		Imgcodecs.imwrite("src/main/resources/img/tmp/grabcut.png", fg); 
 		Mat fg_resize = new Mat();
 		Size sz = new Size(modules1Side, modules1Side);
 		Imgproc.resize(fg, fg_resize, sz);
@@ -374,7 +373,7 @@ public class QRmain {
 
 		gqr.dispose();
 		try {
-			FilePath = "./tmp/QRcode.png";
+			FilePath = "src/main/resources/img/tmp/QRcode.png";
 			//System.err.println(FilePath);
 			File f = new File(FilePath);
 			ImageIO.write(im, "PNG", f);
