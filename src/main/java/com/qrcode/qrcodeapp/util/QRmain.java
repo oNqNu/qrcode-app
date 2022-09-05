@@ -21,6 +21,8 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
+import nu.pattern.OpenCV;
+
 
 public class QRmain {
 	private static int version, el, em, kai;
@@ -49,11 +51,13 @@ public class QRmain {
 		parseOptions(args);
 		modules1Side = 4*version + 17;
 		mod = 0; // non-systematic encoding
-
+		System.out.println(originalfilename);
 		trimming(originalfilename);
-		File trimming = new File("./tmp/trimming.png");
-		imagefilename = trimming.getPath();
 		
+		File trimming = new File("src/main/resources/img/tmp/trimming.png");
+		imagefilename = trimming.getPath();
+		System.out.println(imagefilename);
+//		imagefilename === src/main/resources/img/tmp/trimming.png
 		binarize(imagefilename);
 		weightingBackGround(imagefilename);
 		weightingFace(imagefilename);
@@ -68,7 +72,7 @@ public class QRmain {
 		s = x.calQrcode(d);
 		makefile(s);
 
-		File QRcode = new File("./tmp/QRcode.png");
+		File QRcode = new File("src/main/resources/img/tmp/trimming.png");
 		insert(QRcode.getPath(), originalfilename);
 
 	}
@@ -254,7 +258,7 @@ public class QRmain {
 		}
 
 		// Detect faces in the image.
-		File settingFile = new File("haarcascade_frontalface_default.xml");
+		File settingFile = new File("src/main/resources/haarcascade_frontalface_default.xml");
 		if (!settingFile.exists()) {
 			throw new RuntimeException("No setting file.");
 		}
@@ -430,7 +434,7 @@ public class QRmain {
 		Rect roi = new Rect(clip_x, clip_y, side1clone, side1clone);
 		try{
 			Mat image2 = new Mat(image_clone, roi);
-			Imgcodecs.imwrite("./tmp/trimming.png", image2);
+			Imgcodecs.imwrite("src/main/resources/img/tmp/trimming.png", image2);
 		}  catch (Exception ex) {
 		}
 	}
