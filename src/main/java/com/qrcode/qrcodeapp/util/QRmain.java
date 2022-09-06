@@ -48,6 +48,8 @@ public class QRmain {
 	private static double y_position, x_position;
 
 	public static void execute(final String[] args) {
+		System.out.println("-----------------------------------------------");
+    	System.out.println("-----------------------------------------------");
 		parseOptions(args);
 		modules1Side = 4*version + 17;
 		mod = 0; // non-systematic encoding

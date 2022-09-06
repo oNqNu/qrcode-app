@@ -283,6 +283,7 @@ public class Qrcode{
 			ec = 0;
 		}
 
+
 		int[][] maxDataBitsArray = {
 				{ 0, 128, 224, 352, 512, 688, 864, 992, 1232, 1456, 1728, 2032,
 						2320, 2672, 2920, 3320, 3624, 4056, 4504, 5016, 5352,
@@ -352,12 +353,17 @@ public class Qrcode{
 		byte[] rsBlockOrderTemp = new byte[128];
 
 		try {
-			String filename = QRCODE_DATA_PATH + "/qrv"
+//			String filename = "src/main/resources/img/qrcode-data" 
+					String filename = "qrcode-data" 
+					+ "/qrv"
 					+ Integer.toString(qrcodeVersion) + "_"
 					+ Integer.toString(ec) + ".dat";
 
 			InputStream fis = Qrcode.class.getResourceAsStream(filename);
+			System.out.println(fis);
 			BufferedInputStream bis = new BufferedInputStream(fis);
+			System.out.println("問題なし");
+			System.out.println(qrcodeVersion);
 			bis.read(matrixX);
 			bis.read(matrixY);
 			bis.read(maskArray);
@@ -368,7 +374,7 @@ public class Qrcode{
 			bis.close();
 			fis.close();
 		} catch (Exception e) {
-			System.out.println("ええかんず");
+			System.out.println("問題あり");
 			e.printStackTrace();
 		}
 
@@ -396,7 +402,7 @@ public class Qrcode{
 		int matrixTotalBits = modules1Side * modules1Side;
 		byte[] frameData = new byte[matrixTotalBits + modules1Side];
 		try {
-			String filename = QRCODE_DATA_PATH + "/qrvfr"
+			String filename = "src/main/resources/img" + "/qrvfr"
 					+ Integer.toString(qrcodeVersion) + ".dat";
 			InputStream fis = Qrcode.class.getResourceAsStream(filename);
 			BufferedInputStream bis = new BufferedInputStream(fis);
