@@ -354,8 +354,8 @@ public class Qrcode{
 //		/qrcode-app/src/main/java/com/qrcode/qrcodeapp/util/qrcode-data
 		try {
 //			String filename = "src/main/resources/img/qrcode-data" 
-					String filename = "src/main/java/com/qrcode/qrcodeapp/util/qrcode-data" 
-//					String filename = "qrcode-data" 
+//					String filename = "src/main/java/com/qrcode/qrcodeapp/util/qrcode-data" 
+					String filename = "qrcode-data" 
 					+ "/qrv"
 					+ Integer.toString(qrcodeVersion) + "_"
 					+ Integer.toString(ec) + ".dat";
