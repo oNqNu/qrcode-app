@@ -351,10 +351,11 @@ public class Qrcode{
 		byte[] formatInformationY2 = new byte[15];
 		byte[] rsEccCodewords = new byte[1];
 		byte[] rsBlockOrderTemp = new byte[128];
-
+//		/qrcode-app/src/main/java/com/qrcode/qrcodeapp/util/qrcode-data
 		try {
 //			String filename = "src/main/resources/img/qrcode-data" 
-					String filename = "qrcode-data" 
+					String filename = "src/main/java/com/qrcode/qrcodeapp/util/qrcode-data" 
+//					String filename = "qrcode-data" 
 					+ "/qrv"
 					+ Integer.toString(qrcodeVersion) + "_"
 					+ Integer.toString(ec) + ".dat";
