@@ -94,6 +94,8 @@ public class QRmain {
 			System.out.println("x_position");
 			System.exit(1);
 		}
+		System.out.println("ちゃんと動いている");
+
 		originalfilename = args[0];
 		textdata = args[1];
 		version = Integer.parseInt(args[2]);
