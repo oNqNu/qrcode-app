@@ -1,4 +1,4 @@
-package com.swetake.util;
+package com.qrcode.qrcodeapp.util;
 
 import java.io.*;
 

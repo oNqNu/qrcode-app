@@ -1,4 +1,4 @@
-package com.swetake.util;
+package com.qrcode.qrcodeapp.util;
 
 public class DB {
 	int indexDB[] = new int[256]; // �w���\�����x�N�g���\���̕\
