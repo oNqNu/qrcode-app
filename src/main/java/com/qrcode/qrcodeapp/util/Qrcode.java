@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Qrcode{
 
-	static final String QRCODE_DATA_PATH = "qrcode_data";
+	static final String QRCODE_DATA_PATH = "/qrcode_data";
 	public String FilePath = null;
 	double imgW, imgH, desH, desW;
 	int[][] imar, imag, imab, rgb;
@@ -355,12 +355,15 @@ public class Qrcode{
 		try {
 //			String filename = "src/main/resources/img/qrcode-data" 
 //					String filename = "src/main/java/com/qrcode/qrcodeapp/util/qrcode-data" 
-					String filename = "qrcode-data" 
+					String filename = QRCODE_DATA_PATH 
 					+ "/qrv"
 					+ Integer.toString(qrcodeVersion) + "_"
 					+ Integer.toString(ec) + ".dat";
 
 			InputStream fis = Qrcode.class.getResourceAsStream(filename);
+			// System.out.println("classPath : " + System.getProperty("java.class.path"));
+			System.out.println(filename);
+			System.out.println(qrcodeVersion);
 			System.out.println(fis);
 			BufferedInputStream bis = new BufferedInputStream(fis);
 			System.out.println("問題なし");
@@ -403,7 +406,7 @@ public class Qrcode{
 		int matrixTotalBits = modules1Side * modules1Side;
 		byte[] frameData = new byte[matrixTotalBits + modules1Side];
 		try {
-			String filename = "src/main/resources/img" + "/qrvfr"
+			String filename = QRCODE_DATA_PATH + "/qrvfr"
 					+ Integer.toString(qrcodeVersion) + ".dat";
 			InputStream fis = Qrcode.class.getResourceAsStream(filename);
 			BufferedInputStream bis = new BufferedInputStream(fis);
@@ -411,6 +414,7 @@ public class Qrcode{
 			bis.close();
 			fis.close();
 		} catch (Exception e) {
+			System.out.println("問題あり");
 			e.printStackTrace();
 		}
 

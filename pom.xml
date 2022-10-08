@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.qrcode</groupId>
-	<artifactId>qrcode-app</artifactId>
+	<artifactId>qrcodeapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>qrcode-app</name>
 	<description>Demo project for Spring Boot</description>
@@ -52,6 +52,13 @@
 			<artifactId>opencv</artifactId>
 			<version>4.5.5-1</version>
 		</dependency>
+		<!-- <dependency>
+			<groupId>com.swetake.util</groupId>
+			<artifactId>Qrcode</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/Qrcode.jar</systemPath>
+		</dependency> -->
 	</dependencies>
 
 	<build>

@@ -69,10 +69,13 @@ public class QRmain {
 		x.setQrcodemask(masknum);
 		x.setQrcodeMode(mod);
 		byte[] d = textdata.getBytes();
+		System.out.println("----d----");
+		System.out.println(textdata);
+		System.out.println("---------");
 		s = x.calQrcode(d);
 		makefile(s);
 		System.out.println("ここまで");
-		File QRcode = new File("src/main/resources/img/tmp/trimming.png");
+		File QRcode = new File("src/main/resources/img/tmp/QRcode.png");
 		System.out.println(QRcode.getPath());
 		insert(QRcode.getPath(), originalfilename);
 
@@ -443,6 +446,9 @@ public class QRmain {
 	}
 
 	public static void insert(String file, String file2) {
+		System.out.println("file : " + file);
+		System.out.println("file2 : " + file2);
+
 		OpenCV.loadShared();
 		System.out.println("うん");
 		File f = new File(file);
@@ -502,7 +508,6 @@ public class QRmain {
 					
 				} 
 
-				
 				data_tr[i][j][0] = tmp[0];
 				data_tr[i][j][1] = tmp[1];
 				data_tr[i][j][2] = tmp[2];

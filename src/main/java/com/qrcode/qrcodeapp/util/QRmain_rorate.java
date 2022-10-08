@@ -20,7 +20,7 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
-public class QRmain {
+public class QRmain_rorate {
 	private static int version, el, em, kai;
 	private static byte masknum;
 	private static String originalfilename;
