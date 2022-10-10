@@ -197,7 +197,7 @@ public class QRmain {
 
 	public static void weightingBackGround(String file) {
 		// avoid foreground
-		OpenCV.loadShared();
+		OpenCV.loadLocally();
 		File f = new File(file);
 		Mat image = Imgcodecs.imread(f.getAbsolutePath());
 		if (image == null) {
@@ -256,7 +256,7 @@ public class QRmain {
 
 	public static void weightingFace(String file) {
 		// avoiding face region
-		OpenCV.loadShared();
+		OpenCV.loadLocally();
 		File f = new File(file);
 		Mat image = Imgcodecs.imread(f.getAbsolutePath());
 		if (image == null) {
@@ -390,7 +390,7 @@ public class QRmain {
 
 	public static void trimming(String file) {
 //		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        OpenCV.loadShared();
+        OpenCV.loadLocally();
 		File f = new File(file);
 		Mat image = Imgcodecs.imread(f.getAbsolutePath());
 		if (image == null) {
@@ -449,7 +449,7 @@ public class QRmain {
 		System.out.println("file : " + file);
 		System.out.println("file2 : " + file2);
 
-		OpenCV.loadShared();
+		OpenCV.loadLocally();
 		System.out.println("うん");
 		File f = new File(file);
 		Mat image = Imgcodecs.imread(f.getAbsolutePath());
