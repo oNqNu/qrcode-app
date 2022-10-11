@@ -466,11 +466,11 @@ public class QRmain {
 		System.out.println("いけてる");
 		Mat image2_clone = image2.clone();
 
-//		int iconHeight = msize*modules1Side + 2*msize;
-//		int iconWidth = msize*modules1Side + 2*msize;
+		int iconHeight = msize*modules1Side + 2*msize;
+		int iconWidth = msize*modules1Side + 2*msize;
 		
-		int iconHeight = msize*modules1Side;
-		int iconWidth = msize*modules1Side;
+		// int iconHeight = msize*modules1Side;
+		// int iconWidth = msize*modules1Side;
 		//System.out.println("iconHeight = " +iconHeight+"  iconWidth = " +iconWidth);
 
 		double[][][] data_tr = new double[iconHeight][iconWidth][3];

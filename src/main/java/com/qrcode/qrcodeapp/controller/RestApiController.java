@@ -20,7 +20,7 @@ public class RestApiController {
     private String qr() {
     	
         String str_path = "src/main/resources/img/abe.jpg";
-        String str_data = "https://www.okayama-u.ac.jp/";
+        String str_data = "https://www.okayama-u.ac.jp";
         String str1 = "5";
         String str2 = "0";
         String str3 = "0";
