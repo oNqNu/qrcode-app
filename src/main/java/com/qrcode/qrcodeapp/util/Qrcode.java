@@ -351,22 +351,16 @@ public class Qrcode{
 		byte[] formatInformationY2 = new byte[15];
 		byte[] rsEccCodewords = new byte[1];
 		byte[] rsBlockOrderTemp = new byte[128];
-//		/qrcode-app/src/main/java/com/qrcode/qrcodeapp/util/qrcode-data
 		try {
-//			String filename = "src/main/resources/img/qrcode-data" 
-//					String filename = "src/main/java/com/qrcode/qrcodeapp/util/qrcode-data" 
+
 					String filename = QRCODE_DATA_PATH 
 					+ "/qrv"
 					+ Integer.toString(qrcodeVersion) + "_"
 					+ Integer.toString(ec) + ".dat";
 
 			InputStream fis = Qrcode.class.getResourceAsStream(filename);
-			// System.out.println("classPath : " + System.getProperty("java.class.path"));
-			System.out.println(filename);
-			System.out.println(qrcodeVersion);
-			System.out.println(fis);
+
 			BufferedInputStream bis = new BufferedInputStream(fis);
-			System.out.println("問題なし");
 			System.out.println(qrcodeVersion);
 			bis.read(matrixX);
 			bis.read(matrixY);
@@ -378,7 +372,6 @@ public class Qrcode{
 			bis.close();
 			fis.close();
 		} catch (Exception e) {
-			System.out.println("問題あり");
 			e.printStackTrace();
 		}
 

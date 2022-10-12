@@ -69,12 +69,8 @@ public class QRmain {
 		x.setQrcodemask(masknum);
 		x.setQrcodeMode(mod);
 		byte[] d = textdata.getBytes();
-		System.out.println("----d----");
-		System.out.println(textdata);
-		System.out.println("---------");
 		s = x.calQrcode(d);
 		makefile(s);
-		System.out.println("ここまで");
 		File QRcode = new File("src/main/resources/img/tmp/QRcode.png");
 		System.out.println(QRcode.getPath());
 		insert(QRcode.getPath(), originalfilename);
@@ -97,8 +93,6 @@ public class QRmain {
 			System.out.println("x_position");
 			System.exit(1);
 		}
-		System.out.println("ちゃんと動いている");
-
 		originalfilename = args[0];
 		textdata = args[1];
 		version = Integer.parseInt(args[2]);
@@ -446,24 +440,17 @@ public class QRmain {
 	}
 
 	public static void insert(String file, String file2) {
-		System.out.println("file : " + file);
-		System.out.println("file2 : " + file2);
-
 		OpenCV.loadLocally();
-		System.out.println("うん");
 		File f = new File(file);
 		Mat image = Imgcodecs.imread(f.getAbsolutePath());
 		if (image == null) {
-			System.out.println("あっべ");
 			throw new IllegalArgumentException("Illegal input file.");
 		}
 		File f2 = new File(file2);
 		Mat image2 = Imgcodecs.imread(f2.getAbsolutePath());
 		if (image2 == null) {
-			System.out.println("やっべ");
 			throw new IllegalArgumentException("Illegal input file.");
 		}
-		System.out.println("いけてる");
 		Mat image2_clone = image2.clone();
 
 		int iconHeight = msize*modules1Side + 2*msize;
