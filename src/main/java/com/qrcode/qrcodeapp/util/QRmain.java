@@ -47,9 +47,8 @@ public class QRmain {
 	private static int clip_x, clip_y;
 	private static double y_position, x_position;
 
-	public static void execute(final String[] args) {
+	public static File execute(final String[] args) {
 		System.out.println("-----------------------------------------------");
-    	System.out.println("-----------------------------------------------");
 		parseOptions(args);
 		modules1Side = 4*version + 17;
 		mod = 0; // non-systematic encoding
@@ -73,7 +72,8 @@ public class QRmain {
 		makefile(s);
 		File QRcode = new File("src/main/resources/img/tmp/QRcode.png");
 		System.out.println(QRcode.getPath());
-		insert(QRcode.getPath(), originalfilename);
+		File test = insert(QRcode.getPath(), originalfilename);
+		return test;
 
 	}
 
@@ -439,7 +439,7 @@ public class QRmain {
 		}
 	}
 
-	public static void insert(String file, String file2) {
+	public static File insert(String file, String file2) {
 		OpenCV.loadLocally();
 		File f = new File(file);
 		Mat image = Imgcodecs.imread(f.getAbsolutePath());
@@ -519,6 +519,8 @@ public class QRmain {
 
 		Imgcodecs.imwrite("src/main/resources/img/output/" + getPreffix(f2.getName()) + "_" + version + ecc + "_" + msize + "x" + msize + "_" + scale +".png", image2_clone);
 		System.out.println("QR code is output successfully.");
+		System.out.println(image2_clone.getClass().getSimpleName());
+		return f2;
 
 	}
 }
