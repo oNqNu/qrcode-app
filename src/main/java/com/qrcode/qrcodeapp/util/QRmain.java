@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.util.Base64;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -47,7 +49,7 @@ public class QRmain {
 	private static int clip_x, clip_y;
 	private static double y_position, x_position;
 
-	public static File execute(final String[] args) {
+	public static String execute(final String[] args) {
 		System.out.println("-----------------------------------------------");
 		parseOptions(args);
 		modules1Side = 4*version + 17;
@@ -73,10 +75,38 @@ public class QRmain {
 		File QRcode = new File("src/main/resources/img/tmp/QRcode.png");
 		System.out.println(QRcode.getPath());
 		File test = insert(QRcode.getPath(), originalfilename);
-		return test;
+		// return test;
+		// test.txtファイルを読み込む
+		byte[] binary = getFileBinary("src/main/resources/img/tmp/QRcode.png");
+
+		// base64のライブラリからencodeToStringを利用してbinaryタイプ(byte[])をbase64(Stringタイプ)に変換する。
+		String base64data = Base64.getEncoder().encodeToString(binary);
+		// コンソールに結果を出力する.	
+		System.out.println(base64data);
+		
+		return base64data;
 
 	}
 
+	// ファイルを読み込む関数。
+	private static byte[] getFileBinary(String filepath) {
+		// Fileクラスを割当てする。	
+		File file = new File(filepath);
+		
+		// ファイルサイズでbyteバッファを割り当てする。	
+		byte[] data = new byte[(int) file.length()];
+		// IOのストリームを取得する。
+		try (FileInputStream stream = new FileInputStream(file)) {
+		  // ファイルを読み込む。
+		  stream.read(data, 0, data.length);
+		} catch (Throwable e) {		
+		  e.printStackTrace();	
+		}
+		
+		// binaryを返却。	
+		return data;
+	  }
+	
 	private static void parseOptions(final String[] args) {
 		if (args.length != 12) {
 			System.out.println(

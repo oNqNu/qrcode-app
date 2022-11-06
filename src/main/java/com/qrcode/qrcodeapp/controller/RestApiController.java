@@ -2,6 +2,7 @@ package com.qrcode.qrcodeapp.controller;
 
 import java.io.File;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import com.qrcode.qrcodeapp.util.QRmain;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin
 public class RestApiController {
 
     @RequestMapping("hello")
@@ -19,7 +21,7 @@ public class RestApiController {
     }
 
     @RequestMapping("qr-test")
-    private File qr() {
+    private String qr() {
     // private String qr() {
     	
         String str_path = "src/main/resources/img/abe.jpg";
@@ -34,9 +36,9 @@ public class RestApiController {
         String str8 = "0.7";
         String str9 = "0.3";
         String str10 = "0.6";
-        File result = QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
+        String base64data = QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
         // return "run qr-test";
-        return result;
+        return base64data;
     }
 
     @RequestMapping("greeting")
