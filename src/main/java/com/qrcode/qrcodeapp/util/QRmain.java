@@ -82,7 +82,7 @@ public class QRmain {
 		// base64のライブラリからencodeToStringを利用してbinaryタイプ(byte[])をbase64(Stringタイプ)に変換する。
 		String base64data = Base64.getEncoder().encodeToString(binary);
 		// コンソールに結果を出力する.	
-		System.out.println(base64data);
+		// System.out.println(base64data);
 		
 		return base64data;
 
