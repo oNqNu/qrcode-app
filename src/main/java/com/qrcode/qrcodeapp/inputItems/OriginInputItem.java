@@ -5,6 +5,7 @@ public class OriginInputItem {
 
     //プロパティ
     private String file_path;
+    private String img_string;
     private String data;
     private String version;
     private String ecc_level;
@@ -24,6 +25,14 @@ public class OriginInputItem {
 
     public void setFile_path(String file_path){
     this.file_path = file_path;
+    }
+
+    public String getImg_string(){
+        return img_string;
+    }
+
+    public void setImg_string(String img_string){
+    this.img_string = img_string;
     }
 
     public String getData(){
