@@ -135,6 +135,11 @@ public class QRmain {
 		var = Double.parseDouble(args[9]);
 		y_position = Double.parseDouble(args[10]);
 		x_position = Double.parseDouble(args[11]);
+		System.out.println("y_position");
+		System.out.println(y_position);
+		System.out.println("x_position");
+		System.out.println(x_position);
+
 	}
 
 	public static void binarize(String file) {
@@ -492,6 +497,10 @@ public class QRmain {
 
 		double[][][] data_tr = new double[iconHeight][iconWidth][3];
 		double[] tmp = new double[3];
+        System.out.println("----------------------");
+        System.out.println(tmp);
+        System.out.println("----------------------");
+
 		for (int i = 0; i < iconHeight ; i++) {
 			for (int j = 0; j < iconWidth; j++) {
 				tmp = image.get(i, j);
