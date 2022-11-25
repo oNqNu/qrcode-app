@@ -4,6 +4,9 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Base64;
 import java.awt.image.BufferedImage;
 
@@ -71,7 +74,7 @@ public class RestApiController {
             ByteArrayInputStream input = new ByteArrayInputStream(bytes);
             BufferedImage image = ImageIO.read(input);
             FileOutputStream output =
-            new FileOutputStream("src/main/resources/img/input.jpg");
+            new FileOutputStream("src/main/resources/img/input/tttt.jpg");
             ImageIO.write(image, "jpg", output);
             }catch(IOException e){
                 System.out.println(e.toString());
@@ -79,7 +82,7 @@ public class RestApiController {
             }
         
         // String str_path = "src/main/resources/img/kobe.jpg";
-        String str_path = "src/main/resources/img/input.jpg";
+        String str_path = "src/main/resources/img/input/tttt.jpg";
         String str_data = "https://www.okayama-u.ac.jp";
         String str1 = item.getVersion();
         String str2 = item.getEcc_level();
@@ -93,6 +96,14 @@ public class RestApiController {
         String str10 = item.getX_axis();
 
         String base64data = QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
+
+        Path p = Paths.get("src/main/resources/img/input/tttt.jpg");
+
+        // try{
+        // Files.deleteIfExists(p);
+        // }catch(IOException e){
+        // System.out.println(e);
+        // }
         
         return base64data;
         // return "aa";
@@ -144,7 +155,7 @@ public class RestApiController {
     private String qr() {
     // private String qr() {
     	
-        String str_path = "src/main/resources/img/feinstein.jpg";
+        String str_path = "src/main/resources/img/inputtt.jpg";
         String str_data = "https://www.okayama-u.ac.jp";
         String str1 = "5";
         String str2 = "0";
