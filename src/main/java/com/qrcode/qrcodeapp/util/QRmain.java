@@ -446,17 +446,11 @@ public class QRmain {
 		int iconWidth = img.getWidth();
 		int iconHeight = img.getHeight();
 
-		System.out.println("-------filename----------");
-		System.out.println(file);
-		System.out.println("------------------"); 
-
+		// 謎にImageIcon使ってたなごり（一応残してるだけ）
 		// ImageIcon icon = new ImageIcon(file);
 		// int iconWidth = icon.getIconWidth();
 		// int iconHeight = icon.getIconHeight();
-		System.out.println("-------icon----------");
-		System.out.println(iconWidth);
-		System.out.println(iconHeight);
-		System.out.println("------------------"); 
+
 		original_width = iconWidth;
 		original_height = iconHeight;
 		if (iconHeight > iconWidth)
@@ -473,10 +467,6 @@ public class QRmain {
 		
 		msize = (int)(side1/modules1Side);
 		side1clone = msize*modules1Side;
-		System.out.println("-------xyxyxyxy----------");
-		System.out.println(y_position);
-		System.out.println(x_position);
-		System.out.println("------------------");
 
 		clip_y = (int)(0.5*original_height) - side1clone/2;
 		clip_x = (int)(0.5*original_width) - side1clone/2;
@@ -506,8 +496,6 @@ public class QRmain {
 		}  catch (Exception ex) {
 		}
 
-		// icon = null;
-        // System.gc();
 	}
 
 	public static File insert(String file, String file2) {
