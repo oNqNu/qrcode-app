@@ -129,7 +129,7 @@ public class QRmain {
 			System.exit(1);
 		}
 		// originalfilename = args[0];
-		originalfilename = "src/main/resources/img/input/tttt.jpg";
+		originalfilename = args[0];
 		textdata = args[1];
 		version = Integer.parseInt(args[2]);
 		el = Integer.parseInt(args[3]);
@@ -139,10 +139,10 @@ public class QRmain {
 		Th = Integer.parseInt(args[7]);
 		scale = Double.parseDouble(args[8])/100.0;
 		var = Double.parseDouble(args[9]);
-		// y_position = Double.parseDouble(args[10]);
-		y_position = Double.parseDouble("0.5");
-		// x_position = Double.parseDouble(args[11]);
-		x_position = Double.parseDouble("0.5");
+		y_position = Double.parseDouble(args[10]);
+		// y_position = Double.parseDouble("0.5");
+		x_position = Double.parseDouble(args[11]);
+		// x_position = Double.parseDouble("0.5");
 		System.out.println("y_position");
 		System.out.println(y_position);
 		System.out.println("x_position");
@@ -468,8 +468,8 @@ public class QRmain {
 		msize = (int)(side1/modules1Side);
 		side1clone = msize*modules1Side;
 
-		clip_y = (int)(0.5*original_height) - side1clone/2;
-		clip_x = (int)(0.5*original_width) - side1clone/2;
+		clip_y = (int)(y_position*original_height) - side1clone/2;
+		clip_x = (int)(x_position*original_width) - side1clone/2;
 		if (clip_y < msize)
 			clip_y = msize;
 		if (clip_x < msize)
@@ -580,7 +580,8 @@ public class QRmain {
 			ecc = "Q";
 		}
 
-		Imgcodecs.imwrite("src/main/resources/img/output/" + getPreffix(f2.getName()) + "_" + version + ecc + "_" + msize + "x" + msize + "_" + scale +".png", image2_clone);
+		Imgcodecs.imwrite("src/main/resources/img/output/output.png", image2_clone);
+		// Imgcodecs.imwrite("src/main/resources/img/output/" + getPreffix(f2.getName()) + "_" + version + ecc + "_" + msize + "x" + msize + "_" + scale +".png", image2_clone);
 		System.out.println("QR code is output successfully.");
 		System.out.println(image2_clone.getClass().getSimpleName());
 		return f2;
