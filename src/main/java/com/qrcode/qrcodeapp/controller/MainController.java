@@ -16,8 +16,10 @@ public class MainController {
         return "hello";
     }
 
+    
 
-    @RequestMapping(value = "/hello", method = RequestMethod.POST)
+
+    @RequestMapping(value = "hello", method = RequestMethod.POST)
     public String postFromhello(@RequestParam("text1")String str ,Model model) {
         model.addAttribute("sample", str);
         return "helloResponse";
