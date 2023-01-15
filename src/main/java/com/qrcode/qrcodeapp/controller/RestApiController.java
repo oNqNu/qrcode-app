@@ -76,8 +76,8 @@ public class RestApiController {
         System.out.println(result.substring(0, 3));
 
         try{
-            byte[] bytes = Base64.getDecoder().decode(result.getBytes());
-            ByteArrayInputStream input = new ByteArrayInputStream(bytes);
+            // byte[] bytes = Base64.getDecoder().decode(result.getBytes());
+            ByteArrayInputStream input = new ByteArrayInputStream(Base64.getDecoder().decode(result.getBytes()));
             BufferedImage image = ImageIO.read(input);
             FileOutputStream output =
             new FileOutputStream("src/main/resources/img/input/tttt.jpg");
