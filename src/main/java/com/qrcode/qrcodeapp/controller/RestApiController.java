@@ -73,7 +73,7 @@ public class RestApiController {
         String img_string = item.getImg_string();
         int index = img_string.indexOf(",");
         String result = img_string.substring(index + 1);
-        System.out.println(result.substring(0, 3));
+        // System.out.println(result.substring(0, 3));
 
         try{
             // byte[] bytes = Base64.getDecoder().decode(result.getBytes());
@@ -102,9 +102,8 @@ public class RestApiController {
         String str10 = item.getX_axis();
         
         String base64data = QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
-        System.out.println(base64data);
+        // System.out.println(base64data);
 
-        Path p = Paths.get("src/main/resources/img/input/tttt.jpg");
 
         // try{
         // Files.deleteIfExists(p);
