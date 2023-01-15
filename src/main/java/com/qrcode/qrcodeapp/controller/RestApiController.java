@@ -73,7 +73,7 @@ public class RestApiController {
         String img_string = item.getImg_string();
         int index = img_string.indexOf(",");
         String result = img_string.substring(index + 1);
-        System.out.println(result.substring(0, 3));
+        // System.out.println(result.substring(0, 3));
 
         try{
             // byte[] bytes = Base64.getDecoder().decode(result.getBytes());
