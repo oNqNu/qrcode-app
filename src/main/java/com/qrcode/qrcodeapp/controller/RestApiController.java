@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Base64;
+import java.util.Map;
 import java.awt.image.BufferedImage;
 
 
@@ -32,6 +33,11 @@ public class RestApiController {
     @RequestMapping(value = "hello")
     private String hello(@RequestParam("test") String str) {
         return str;
+    }
+
+    @RequestMapping(value = "json_test")
+    private Map<String, String> json_test() {
+        return Map.of("Key1","Value1","Key2","Value2");
     }
 
     @RequestMapping(value = "test", method = RequestMethod.GET)
