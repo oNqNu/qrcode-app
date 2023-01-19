@@ -121,6 +121,42 @@ public class RestApiController {
         // return "aa";
     }
 
+    @RequestMapping(value = "create_qrcode",method = RequestMethod.POST)
+    private Map<String,String> create_qrcode(@RequestBody OriginInputItem item) {
+
+        String img_string = item.getImg_string();
+        int index = img_string.indexOf(",");
+        String result = img_string.substring(index + 1);
+
+        try{
+            // byte[] bytes = Base64.getDecoder().decode(result.getBytes());
+            ByteArrayInputStream input = new ByteArrayInputStream(Base64.getDecoder().decode(result.getBytes()));
+            BufferedImage image = ImageIO.read(input);
+            FileOutputStream output =
+            new FileOutputStream("src/main/resources/img/input/tttt.jpg");
+            ImageIO.write(image, "jpg", output);
+            }catch(IOException e){
+                System.out.println(e.toString());
+                System.out.println("なんかおかしいこと起きてんで");
+            }
+        
+        // String str_path = "src/main/resources/img/kobe.jpg";
+        String str_path = "src/main/resources/img/input/tttt.jpg";
+        String str_data = "https://www.okayama-u.ac.jp";
+        String str1 = item.getVersion();
+        String str2 = item.getEcc_level();
+        String str3 = item.getEncoding();
+        String str4 = item.getMask_pattern();
+        String str5 = item.getTraial_times();
+        String str6 = item.getThreshold();
+        String str7 = item.getScale();
+        String str8 = item.getVariance();
+        String str9 = item.getY_axis();
+        String str10 = item.getX_axis();
+        
+        return QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
+    }
+
 
     @RequestMapping(value = "get_sample",method = RequestMethod.GET)
     private String get_sample() {

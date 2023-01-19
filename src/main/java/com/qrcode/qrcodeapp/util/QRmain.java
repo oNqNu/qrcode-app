@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Base64;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -49,7 +50,7 @@ public class QRmain {
 	private static int clip_x, clip_y;
 	private static double y_position, x_position;
 
-	public static String execute(final String[] args) {
+	public static Map<String, String> execute(final String[] args) {
 		System.out.println("-----------------------------------------------");
 		parseOptions(args);
 		modules1Side = 4*version + 17;
@@ -82,14 +83,18 @@ public class QRmain {
 		File test = insert(QRcode.getPath(), originalfilename);
 		// return test;
 		// test.txtファイルを読み込む
-		byte[] binary = getFileBinary("src/main/resources/img/tmp/QRcode.png");
+		byte[] qrcode_binary = getFileBinary("src/main/resources/img/tmp/QRcode.png");
+		byte[] full_output = getFileBinary("src/main/resources/img/output/output.png");
 
 		// base64のライブラリからencodeToStringを利用してbinaryタイプ(byte[])をbase64(Stringタイプ)に変換する。
-		String base64data = Base64.getEncoder().encodeToString(binary);
+		String qrcode_base64data = Base64.getEncoder().encodeToString(qrcode_binary);
+		String output_base64data = Base64.getEncoder().encodeToString(full_output);
 		// コンソールに結果を出力する.	
 		// System.out.println(base64data);
+
+
 		
-		return base64data;
+		return Map.of("qrcode_base64", qrcode_base64data, "output_base64", output_base64data);
 
 	}
 
