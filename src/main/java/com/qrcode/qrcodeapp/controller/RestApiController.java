@@ -123,8 +123,8 @@ public class RestApiController {
         return QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
     }
 
-    @RequestMapping(value = "post_test3",method = RequestMethod.POST)
-    private Map<String,String> post_test3(@RequestBody OriginInputItem item) {
+    @RequestMapping(value = "post_test",method = RequestMethod.POST)
+    private Map<String,String> post_test(@RequestBody OriginInputItem item) {
 
 
         // String str_path = "src/main/resources/img/abe.jpg";
