@@ -134,6 +134,13 @@ public class RestApiController {
 
         item = null;
         System.gc();
+
+        long atotal = Runtime.getRuntime().totalMemory();
+	    long afree = Runtime.getRuntime().freeMemory();
+	    long amax = Runtime.getRuntime().maxMemory();
+	    System.out.println("total: " + atotal / 1024 + "kb");
+	    System.out.println("free: " + afree / 1024 + "kb");
+	    System.out.println("max: " + amax / 1024 + "kb");
         
         return QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
     }
@@ -170,6 +177,7 @@ public class RestApiController {
         String str8 = item.getVariance();
         String str9 = item.getY_axis();
         String str10 = item.getX_axis();
+
 
         return QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
     }
