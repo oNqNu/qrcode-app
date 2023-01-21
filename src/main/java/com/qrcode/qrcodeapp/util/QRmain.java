@@ -64,6 +64,7 @@ public class QRmain {
 		
 		File trimming = new File("src/main/resources/img/tmp/trimming.png");
 		imagefilename = trimming.getPath();
+		trimming = null;
 //		imagefilename === src/main/resources/img/tmp/trimming.png
 		binarize(imagefilename);
 		weightingBackGround(imagefilename);
@@ -161,6 +162,8 @@ public class QRmain {
 		if (img == null) {
 			throw new IllegalArgumentException("Illegal input file.");
 		}
+
+		img = null;
 
 		int w = msize * modules1Side;// System.out.println("w:"+w);
 		int h = msize * modules1Side;
