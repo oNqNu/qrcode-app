@@ -124,6 +124,9 @@ public class RestApiController {
         String str8 = item.getVariance();
         String str9 = item.getY_axis();
         String str10 = item.getX_axis();
+
+        item = null;
+        System.gc();
         
         return QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
     }
