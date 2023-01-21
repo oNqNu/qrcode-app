@@ -90,6 +90,7 @@ public class RestApiController {
     @RequestMapping(value = "create_qrcode",method = RequestMethod.POST)
     private Map<String,String> create_qrcode(@RequestBody OriginInputItem item) {
 
+	    System.out.println("最初");
         long total = Runtime.getRuntime().totalMemory();
 	    long free = Runtime.getRuntime().freeMemory();
 	    long max = Runtime.getRuntime().maxMemory();

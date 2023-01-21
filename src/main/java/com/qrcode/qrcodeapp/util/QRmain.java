@@ -94,7 +94,15 @@ public class QRmain {
 		// System.out.println(base64data);
 
 
-		
+		System.out.println("最後");
+        long total = Runtime.getRuntime().totalMemory();
+	    long free = Runtime.getRuntime().freeMemory();
+	    long max = Runtime.getRuntime().maxMemory();
+	    System.out.println("total: " + total / 1024 + "kb");
+	    System.out.println("free: " + free / 1024 + "kb");
+	    System.out.println("max: " + max / 1024 + "kb");
+
+
 		return Map.of("qrcode_base64", qrcode_base64data, "output_base64", output_base64data);
 
 	}
