@@ -163,8 +163,6 @@ public class QRmain {
 			throw new IllegalArgumentException("Illegal input file.");
 		}
 
-		img = null;
-
 		int w = msize * modules1Side;// System.out.println("w:"+w);
 		int h = msize * modules1Side;
 
@@ -188,6 +186,8 @@ public class QRmain {
 				yuV[i][j] = 0.5*r - 0.4187*g - 0.0813*b;
 			}
 		}
+
+		img = null;
 
 		// average pixel value at central region (minmax)
 		int min = 255;
