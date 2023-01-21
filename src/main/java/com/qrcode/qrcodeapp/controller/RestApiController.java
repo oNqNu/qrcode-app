@@ -99,9 +99,11 @@ public class RestApiController {
             // byte[] bytes = Base64.getDecoder().decode(result.getBytes());
             ByteArrayInputStream input = new ByteArrayInputStream(Base64.getDecoder().decode(result.getBytes()));
             BufferedImage image = ImageIO.read(input);
+            input = null;
             FileOutputStream output =
             new FileOutputStream("src/main/resources/img/input/tttt.jpg");
             ImageIO.write(image, "jpg", output);
+            output = null;
             }catch(IOException e){
                 System.out.println(e.toString());
                 System.out.println("なんかおかしいこと起きてんで");
