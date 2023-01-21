@@ -176,6 +176,13 @@ public class RestApiController {
 
     @RequestMapping(value = "get_test")
     private Map<String,String> get_test() {
+
+        long total = Runtime.getRuntime().totalMemory();
+	    long free = Runtime.getRuntime().freeMemory();
+	    long max = Runtime.getRuntime().maxMemory();
+	    System.out.println("total: " + total / 1024 + "kb");
+	    System.out.println("free: " + free / 1024 + "kb");
+	    System.out.println("max: " + max / 1024 + "kb");
         
         String str_path = "src/main/resources/img/abe.jpg";
         String str_data = "https://www.okayama-u.ac.jp";
