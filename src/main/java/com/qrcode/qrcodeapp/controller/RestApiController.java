@@ -93,6 +93,7 @@ public class RestApiController {
         String img_string = item.getImg_string();
         int index = img_string.indexOf(",");
         String result = img_string.substring(index + 1);
+        img_string = null;
 
         try{
             // byte[] bytes = Base64.getDecoder().decode(result.getBytes());
@@ -105,6 +106,8 @@ public class RestApiController {
                 System.out.println(e.toString());
                 System.out.println("なんかおかしいこと起きてんで");
             }
+
+        result = null;
         
         // String str_path = "src/main/resources/img/kobe.jpg";
         String str_path = "src/main/resources/img/input/tttt.jpg";
