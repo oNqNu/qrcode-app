@@ -121,7 +121,7 @@ public class RestApiController {
         
         // String str_path = "src/main/resources/img/kobe.jpg";
         String str_path = "src/main/resources/img/input/tttt.jpg";
-        String str_data = "https://www.okayama-u.ac.jp";
+        String str_data = item.getData();
         String str1 = item.getVersion();
         String str2 = item.getEcc_level();
         String str3 = item.getEncoding();
