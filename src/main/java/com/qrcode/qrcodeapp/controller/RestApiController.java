@@ -158,7 +158,7 @@ public class RestApiController {
 	    System.out.println("max: " + max / 1024 + "kb");
 
         String img_string = item.get("img_string");
-	    System.out.println(img_string);
+	    System.out.println(item);
 
         int index = img_string.indexOf(",");
         String result = img_string.substring(index + 1);
@@ -185,7 +185,7 @@ public class RestApiController {
         String str_path = "src/main/resources/img/input/tttt.jpg";
         String str_data = item.get("data");
         String str1 = item.get("version");
-        String str2 = item.get("cee_level");
+        String str2 = item.get("ecc_level");
         String str3 = item.get("encoding");
         String str4 = item.get("mask_pattern");
         String str5 = item.get("trial_times");
