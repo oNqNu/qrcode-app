@@ -157,7 +157,7 @@ public class RestApiController {
 	    System.out.println("free: " + free / 1024 + "kb");
 	    System.out.println("max: " + max / 1024 + "kb");
 
-        String img_string = item.get("img_string").replace("¥n","");
+        String img_string = item.get("img_string");
 	    System.out.println(img_string);
 
         int index = img_string.indexOf(",");
@@ -166,7 +166,8 @@ public class RestApiController {
 
         try{
             // byte[] bytes = Base64.getDecoder().decode(result.getBytes());
-            ByteArrayInputStream input = new ByteArrayInputStream(Base64.getDecoder().decode(result.getBytes()));
+            ByteArrayInputStream input = new ByteArrayInputStream(Base64.getMimeDecoder().decode(result.getBytes()));
+            // ByteArrayInputStream input = new ByteArrayInputStream(Base64.getDecoder().decode(result.getBytes()));
             BufferedImage image = ImageIO.read(input);
             input = null;
             FileOutputStream output =
