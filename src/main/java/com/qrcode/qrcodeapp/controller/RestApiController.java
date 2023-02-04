@@ -146,7 +146,7 @@ public class RestApiController {
         return QRmain.execute(new String[] {str_path,str_data,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10});
     }
 
-    @RequestMapping(value = "create_qrcode_bymap",method = RequestMethod.POST)
+    @RequestMapping(value = "create_qrcode_bymap",method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded")
     private Map<String,String> create_qrcode_bymap(@RequestBody Map<String,String> item) {
 
 	    System.out.println("最初");
