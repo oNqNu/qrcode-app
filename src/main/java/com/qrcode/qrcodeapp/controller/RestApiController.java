@@ -157,7 +157,7 @@ public class RestApiController {
 	    System.out.println("free: " + free / 1024 + "kb");
 	    System.out.println("max: " + max / 1024 + "kb");
 
-        String img_string = item.get("img_string");
+        String img_string = item.get("img_string").replace("¥n","");
 	    System.out.println(img_string);
 
         int index = img_string.indexOf(",");
